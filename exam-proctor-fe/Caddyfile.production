@@ -1,0 +1,9 @@
+slateducation.co.in:80 {
+    tls yash97r@gmail.com
+    root * /srv
+    route {
+        reverse_proxy /api* server:8000
+        try_files {path} {path} /index.http
+        file_server
+    }
+}

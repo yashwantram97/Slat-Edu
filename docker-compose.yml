@@ -1,0 +1,54 @@
+version: "3.8"
+services:
+  client:
+    container_name: client
+    build:
+      context: exam-proctor-fe
+      dockerfile: Dockerfile
+      args:
+        - CADDYFILE=Caddyfile.production
+    stdin_open: true
+    ports: 
+      - "80:80"
+      - "443:443"
+    networks:
+      - mern-app
+    depends_on:
+      - server
+    volumes:
+    - caddy-data:/data
+    - caddy-config:/config
+      
+  server:
+    container_name: server
+    build:
+      context: exam-proctor-be
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    hostname: server
+    networks:
+      - mern-app
+    depends_on:
+      - face
+
+  face:
+    container_name: face
+    build:
+      context: face-analysis
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    hostname: face
+    networks:
+      - mern-app
+
+networks:
+  mern-app:
+    driver: bridge
+
+volumes:
+  caddy-data:
+    driver: local
+  caddy-config:
+    driver: local
