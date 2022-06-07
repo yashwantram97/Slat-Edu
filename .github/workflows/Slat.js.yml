@@ -32,7 +32,7 @@ jobs:
       run: |
         touch exam-proctor-be/.env
         echo KEY_ID=${{ secrets.KEY_ID }} >> exam-proctor-fe/.env
-        echo REACT_APP_BACKEND=${{ secrets.REACT_APP_BACKEND }} >> exam-proctor-be/.env
+        echo REACT_APP_BACKEND=${{ secrets.REACT_APP_BACKEND }} >> exam-proctor-fe/.env
         cat exam-proctor-be/.env
 
     - name: docker-compose down 
