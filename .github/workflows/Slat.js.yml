@@ -14,6 +14,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      with:
+        clean: 'false'
+
     - name: docker-compose down 
       run: docker-compose down
     
