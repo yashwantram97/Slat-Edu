@@ -17,18 +17,24 @@ jobs:
       with:
         clean: 'false'
 
-    - name: 'Create env file'
+    - name: 'Create backend env file'
       run: |
-        touch .env
-        echo API=${{ secrets.API }} >> .env
-        echo DATABASE=${{ secrets.DATABASE }} >> .env
-        echo DATABASE_FILE=${{ secrets.DATABASE_FILE }} >> .env
-        echo DATABASE_FILE_DB=${{ secrets.DATABASE_FILE_DB }} >> .env
-        echo KEY_ID=${{ secrets.KEY_ID }} >> .env
-        echo KEY_SECRET=${{ secrets.KEY_SECRET }} >> .env
-        echo PORT=${{ secrets.PORT }} >> .env
-        echo REACT_APP_BACKEND=${{ secrets.REACT_APP_BACKEND }} >> .env
-        cat .env
+        touch exam-proctor-be/.env
+        echo API=${{ secrets.API }} >> exam-proctor-be/.env
+        echo DATABASE=${{ secrets.DATABASE }} >> exam-proctor-be/.env
+        echo DATABASE_FILE=${{ secrets.DATABASE_FILE }} >> exam-proctor-be/.env
+        echo DATABASE_FILE_DB=${{ secrets.DATABASE_FILE_DB }} >> exam-proctor-be/.env
+        echo KEY_ID=${{ secrets.KEY_ID }} >> exam-proctor-be/.env
+        echo KEY_SECRET=${{ secrets.KEY_SECRET }} >> exam-proctor-be/.env
+        echo PORT=${{ secrets.PORT }} >> exam-proctor-be/.env
+        cat exam-proctor-be/.env
+
+    - name: 'Create frontend env file'
+      run: |
+        touch exam-proctor-fe/.env
+        echo KEY_ID=${{ secrets.KEY_ID }} >> exam-proctor-fe/.env
+        echo REACT_APP_BACKEND=${{ secrets.REACT_APP_BACKEND }} >> exam-proctor-fe/.env
+        cat exam-proctor-fe/.env
 
     - name: docker-compose down 
       run: docker-compose down
