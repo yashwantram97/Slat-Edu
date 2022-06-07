@@ -9,35 +9,31 @@ on:
 jobs:
 
   build:
-    environment: secrets
+
     runs-on: self-hosted
 
     steps:
     - uses: actions/checkout@v3
-      with:
-        clean: 'false'
 
-    - name: Make envfile be
-      uses: SpicyPizza/create-envfile@v1
-      with:
-        envkey_API: ${{ secrets.API }}
-        envkey_DATABASE: ${{ secrets.DATABASE }}
-        envkey_DATABASE_FILE: ${{ secrets.DATABASE_FILE }}
-        envkey_DATABASE_FILE_DB: ${{ secrets.DATABASE_FILE_DB }}
-        envkey_KEY_ID: ${{ secrets.KEY_ID }}
-        envkey_KEY_SECRET: ${{ secrets.KEY_SECRET }}
-        envkey_PORT: ${{ secrets.PORT }}
-        directory: exam-proctor-be
-        file_name: .env
+    - name: 'Create env file be'
+      run: |
+        touch exam-proctor-be/.env
+        echo API=${{ secrets.API }} >> exam-proctor-be/.env
+        echo DATABASE=${{ secrets.DATABASE }} >> exam-proctor-be/.env
+        echo DATABASE_FILE=${{ secrets.DATABASE_FILE }} >> exam-proctor-be/.env
+        echo DATABASE_FILE_DB=${{ secrets.DATABASE_FILE_DB }} >> exam-proctor-be/.env
+        echo KEY_ID=${{ secrets.KEY_ID }} >> exam-proctor-be/.env
+        echo KEY_SECRET=${{ secrets.KEY_SECRET }} >> exam-proctor-be/.env
+        echo PORT=${{ secrets.PORT }} >> exam-proctor-be/.env
+        echo SECRET=${{ secrets.SECRET }} >> exam-proctor-be/.env
+        cat exam-proctor-be/.env
 
-    - name: Make envfile fe
-      uses: SpicyPizza/create-envfile@v1
-      with:
-        envkey_REACT_APP_BACKEND: ${{ secrets.REACT_APP_BACKEND }}
-        envkey_KEY_ID: ${{ secrets.KEY_ID }}
-        directory: exam-proctor-fe
-        file_name: .env
-        
+    - name: 'Create env file fe'
+      run: |
+        touch exam-proctor-be/.env
+        echo KEY_ID=${{ secrets.KEY_ID }} >> exam-proctor-fe/.env
+        echo REACT_APP_BACKEND=${{ secrets.REACT_APP_BACKEND }} >> exam-proctor-be/.env
+        cat exam-proctor-be/.env
 
     - name: docker-compose down 
       run: docker-compose down
