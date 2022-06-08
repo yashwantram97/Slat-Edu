@@ -59,5 +59,10 @@ A full stack mern application with AI monitoring system for ineuron challenge
 #### Once the application is up or running in port 80 hit the below API to load the categories
 
       http://localhost/api/seeding/categories
+      
+## For more details refer below links:
+
+    Documents - https://github.com/yashwantram97/Slat-documents
+    
  
 
