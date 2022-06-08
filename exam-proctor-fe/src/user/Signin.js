@@ -60,7 +60,7 @@ const SignIn = () => {
         <div className="col-md-4 offset-sm-3 text-left mx-auto">
           <form>
             <div className="form-group my-2">
-              <label for="exampleInputEmail1">Email address</label>
+              <label for="exampleInputEmail1">Email address.</label>
               <input type="email" 
                 className="form-control" 
                 id="exampleInputEmail1" 
