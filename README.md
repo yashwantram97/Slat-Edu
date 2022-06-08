@@ -63,6 +63,8 @@ A full stack mern application with AI monitoring system for ineuron challenge
 ## For more details refer below links:
 
     Documents - https://github.com/yashwantram97/Slat-documents
+    Detailed Application Demo - https://youtu.be/mS7rEv2oSk8
+    Linked In - https://www.linkedin.com/posts/yashwant-ram-a829a7165_hello-as-a-part-of-course-a-thon-challenge-activity-6940436285979336704-allv?utm_source=linkedin_share&utm_medium=member_desktop_web
     
  
 
