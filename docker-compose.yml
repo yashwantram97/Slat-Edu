@@ -53,6 +53,8 @@ services:
     hostname: face
     networks:
       - mern-app
+    volumes:
+    - weight:/root/.deepface/weights
 
 networks:
   mern-app:
@@ -62,4 +64,6 @@ volumes:
   caddy-data:
     driver: local
   caddy-config:
+    driver: local
+  weight:
     driver: local

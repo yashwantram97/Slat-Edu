@@ -1,7 +1,9 @@
 http://localhost:80 {
     root * /srv
     route {
-        reverse_proxy /api* server:8000
+        reverse_proxy /api* server:8000 server1:8001 {
+	        lb_policy header X-My-Header
+        }
         try_files {path} {path} /index.http
         file_server
     }
