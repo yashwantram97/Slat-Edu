@@ -32,6 +32,17 @@ services:
     depends_on:
       - face
 
+  server1:
+    container_name: server1
+    build:
+      context: exam-proctor-be-lb1
+      dockerfile: Dockerfile
+    ports:
+      - "8001:8001"
+    hostname: server
+    networks:
+      - mern-app
+
   face:
     container_name: face
     build:

@@ -1,4 +1,6 @@
 exam-proctor-be/node_modules
+exam-proctor-be-lb1/node_modules
 exam-proctor-fe/node_modules
 exam-proctor-be/.env
+exam-proctor-be-lb1/.env
 exam-proctor-fe/.env
