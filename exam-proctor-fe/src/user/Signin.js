@@ -52,7 +52,7 @@ const SignIn = () => {
       <div className="jumbotron jumbotron-fluid text-center">
       <div className="container">
         <img className="rounded mx-auto d-block" src={require('../media/slat.png')} alt="Card image cap" style={{height:"200px", width:"200px", objectFit:"contain"}}/>
-        <p className="lead">Login in and start to create and learn</p>
+        <p className="lead">Login in and start to create and learn.</p>
       </div>
       </div>
 
